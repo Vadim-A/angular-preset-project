@@ -1,0 +1,59 @@
+@import "../../../scss/constants.scss";
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: auto;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: none;
+  height: 60px;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  .header__page-title,
+  .header__user-name {
+    padding: 5px;
+  }
+
+  .header__page-title {
+    flex: auto;
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+  .header__user-name {
+    padding: 5px;
+    font-weight: bold;
+    font-size: $font-size-16;
+    color: $color-text-dark;
+  }
+}
+
+nav {
+  background-color: $color-secondary;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-right: $duplo-space-m;
+      a {
+        text-decoration: none;
+        color: $color-text-light;
+        font-size: $font-size-16;
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex: auto;
+  padding: $duplo-space-m;
+}
