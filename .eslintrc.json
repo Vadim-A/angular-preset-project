@@ -29,6 +29,13 @@
   },
   "overrides": [
     {
+      "files": ["src/**/*.spec.ts"],
+      "parserOptions": { "project": "./tsconfig.eslint.json" },
+      "extends": ["plugin:jest/recommended", "plugin:jest-formatting/recommended"],
+      "plugins": ["jest", "jest-formatting"],
+      "env": { "jest/globals": true }
+    },
+    {
       "files": ["*.ts"],
       "parserOptions": {
         "project": ["tsconfig.json", "e2e/tsconfig.json"],
