@@ -4,9 +4,11 @@
   "scripts": {
     "ng": "node ./node_modules/@angular/cli/bin/ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "jest",
+    "build": "npm run ng -- build",
+    "build:prod": "npm run ng -- build --prod",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --passWithNoTests --collect-coverage",
     "e2e": "ng e2e",
     "lint": "npm run ng -- lint",
     "lint:fix": "eslint src/**/*.ts --fix",
@@ -24,6 +26,7 @@
     "@angular/platform-browser": "11.0.3",
     "@angular/platform-browser-dynamic": "11.0.3",
     "@angular/router": "11.0.3",
+    "normalize.css": "^8.0.1",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.2"
