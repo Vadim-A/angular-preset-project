@@ -6,18 +6,18 @@
     "start": "ng serve",
     "build": "npm run ng -- build",
     "build:prod": "npm run ng -- build --prod",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --passWithNoTests --collect-coverage",
-    "e2e": "ng e2e",
-    "lint": "npm run ng -- lint",
-    "lint:fix": "eslint src/**/*.ts --fix",
+    "test": "npx jest --passWithNoTests",
+    "test:watch": "npx jest --watch",
+    "test:coverage": "npx jest --passWithNoTests --collect-coverage",
+    "e2e": "npm run ng e2e",
+    "lint": "npx eslint {src,e2e}/**/*.ts",
+    "lint:fix": "npx eslint {src,e2e}/**/*.ts --fix",
     "lint-staged": "npx lint-staged",
-    "stylelint": "stylelint src/**/*{.css,.scss}",
-    "stylelint:fix": "stylelint /src/**/*{.css,.scss} --fix",
-    "prettier": "prettier --write src/**/*.{js,ts,css}",
+    "stylelint": "npx stylelint src/**/*.scss",
+    "stylelint:fix": "npx stylelint src/**/*.scss --fix",
+    "prettier": "prettier --write {src,e2e}/**/*.{js,ts,css,html}",
     "ngcc": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points --tsconfig \"./tsconfig.app.json\"",
-    "postinstall": "npm run ngcc && husky install"
+    "postinstall": "npm run ngcc && npx husky install"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +29,7 @@
     "@angular/platform-browser": "11.0.3",
     "@angular/platform-browser-dynamic": "11.0.3",
     "@angular/router": "11.0.3",
+    "eslint-plugin-jest-formatting": "2.0.1",
     "normalize.css": "8.0.1",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
@@ -72,6 +73,9 @@
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
       "<rootDir>/src/setup-jest.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist"
     ]
   },
   "lint-staged": {
