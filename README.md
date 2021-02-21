@@ -79,9 +79,15 @@
   - `models`
   - `constants`
 
-## Работа с Git
+## Работа с Git (**_todo_**)
 
-**_todo_**
+При написании коммита нужно придерживаться общепринятых соглашений [https://www.conventionalcommits.org/ru/v1.0.0-beta.4/](https://www.conventionalcommits.org/ru/v1.0.0-beta.4/).
+
+Можно воспользоваться командой для интерактивного ввода сообщений о коммите `npm run cz`
+
+На основе этих комитов в дальнейшем генерируется файл CHANGELOG.md
+
+Для CHANGELOG.md и автоматической генерации версии приложения нужно запустить комманду `npm run release`. Команда автоматически создаст новый коммит с измененными CHANGELOG.md, package.json и package-lock.json.
 
 ## Рекомендации разработчикам (todo)
 
