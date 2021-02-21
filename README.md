@@ -1,27 +1,81 @@
-# AngularPresetProject
+# Angular Preset Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Данное приложение angular спроектировано и настроено с учетом накопленного опыта в проектировании и лучших практик программирования. Служит для быстрого развертывания проектов на старте разработки и быстрого внедрения содрудников в процесс разработки и следованию общих архитектурных принципов.
 
-## Development server
+**_todo: подумать над формулировкой_**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Установленные зависимости
 
-## Code scaffolding
+`normalize.css` - CSS-файл, который обеспечивает для HTML-элементов кроссбраузерность в стилях по умолчанию.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Dev зависимости
 
-## Build
+`Jest` - инструмент для unit тестирования, так же установлен пакет `jest-preset-angular` с предустановленными настройками для angular.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`eslint` - инструмент статического анализа кода для выявления проблемных шаблонов. Для полноценной работы установленны плагины и конфиги:
 
-## Running unit tests
+- `@angular-eslint` - набор пакетов для работы **ESLint** в среде angular
+- `@typescript-eslint` - набор пакетов для работы **ESLint** c typescript синтаксисом
+- `eslint-plugin-import` - плагин, который следить за тем, чтобы все импортируемые зависимости присутствовали в проекте, подключались в удобном для последующей работы порядке, и так далее
+- `eslint-plugin-jest` - плагин, позволяющий настроить правила анализа кода для тестов
+- `eslint-plugin-jest-formatting` - плагин, позволяющий настроить правила форматирования для тестов
+- `eslint-plugin-prettier` - плагин для форматирования кода
+- `eslint-config-airbnb-typescript` - предустановленая конфигурация правил анализа кода typescript
+- `eslint-config-prettier` - предустановленные правила для форматирования кода
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Более подробно о **ESLint** можно ознакомится на оффициальном сайте [https://eslint.org/docs/user-guide/getting-started](https://eslint.org/docs/user-guide/getting-started). Подробное описание списка доступных плагинов и конфигураций доступно здесь [https://github.com/dustinspecker/awesome-eslint](https://github.com/dustinspecker/awesome-eslint).
 
-## Running end-to-end tests
+`stylelint` - инструмент статического анализа кода стилей, который отлавливает ошибки и помогает соблюдать соглашения по стилю кода и применяемым практикам. Для полноценной работы установленны плагины и конфигурации:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- `stylelint-scss` - плагин для работы с _.scss_ файлами
+- `stylelint-prettier` - плагин для форматирования кода
+- `stylelint-config-standard`, `stylelint-config-recommended-scss` - предустановленные конфигурации для _.scss_
 
-## Further help
+Более подробно о **stylelint** можно ознакомится на оффициальном сайте [https://stylelint.io/user-guide/get-started](https://stylelint.io/user-guide/get-started).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`prettier` - отдельный инструмен для форматирования кода.
+
+`husky` - инструмент, позволяющий описать хуки для git.
+
+`lint-staged` - инструмент, позволяющий запускать линтеры для файлов, находящиеся в состоянии staged.
+
+## Команды проекта
+
+- `start`: запуск проекта.
+- `build`: компиляция проекта.
+- `build:prod`: компиляция проекта в режиме prod (с оптимизацией и без source map).
+- `test`: прогон тестов.
+- `test:watch`: запуск механизма отслеживание изменений для автоматической прогонки тестов.
+- `test:coverage`: расчет покрытия кода тестами.
+- `e2e`: запуск e2e тестирования.
+- `lint`: вывод ошибок линтера для _.ts_ и _.html_ файлов.
+- `lint:fix`: вывод ошибок линтера и автоматическое исправление для _.ts_ и _.html_ файлов.
+- `stylelint`: вывод ошибок линтера для _.scss_ файлов.
+- `stylelint`: вывод ошибок линтера и автоматическое исправление для _.scss_ файлов.
+- `stylelint`: инструмент для форматирование кода для _.ts_ и _.html_ файлов.
+- `lint-staged`: команда для прогонки линтеров для staged файлов. Автоматически запускает работу пакетов `prettier` и `stylelint` перед коммитом.
+
+## Структура проекта
+
+- `components` - каталог для компонент, которые используются только на главной странице и таким образом отображаются на всем приложении (например компоненты главного меню, лодера, футера, сайд-бара и т.д.)
+- `core` содержит в себе фундамент работы приложения, который используется повсеместно (например сервисы авторизации и получения данных, гуарды и т.д.) а так же необходимые интерфейсы и константы.
+- `store` - стор для приложения.
+- `modules` - каталог для хранения отдельных независимых друг от друга модулей приложения, как правило лениво подгружаемых.
+- `shared` - содержит общие программные элементы, которые могут быть использованы в произвольном месте приложения. Включают в себя:
+  - `modules`:
+    - `presenters` - компоненты, являющиеся частью UI, содержат минимальный код, необходимый для обслуживания поведения UI. Могут инджектить встроеные в ангулар сервисы (ChangeDetectorRef, FormBuilder). Могут содержать внутри себя другие презенторы. Не могут влиять на внешнее окружение и знать о нем. Могут быть легко портированы в другой проект. Могут базироваться на стороних UI библиотеках (ui-kit, material, kendo и тд).
+    - `smart-components` - комплексные компоненты, Которые могут содержать в себе другие Smart-components или Presenters. Могут инджектить сервисы (сервисы-хелперы), описанные отдельно в проекте в shared. Могут иметь доступ к внешниму окружению и влиять на него через стор или сервисы, (например, Smart-component грид подписался на нажатие кнопки изменения высоты в тулбаре, либо тулбар сигнализирует внешнему окружению о нажатии на какую-либо кнопку через стор или общий сервис).
+    - `feature-modules` - содержат бизнес-логику приложения используемую в разных местах. может инджектить любые сервисы, описанные в shared, может обращаться к бэк-энду. Может иметь свой стор.
+  - `services` - сервисы для инкапсуляции бизнес-логики
+  - `validators` - общие валидаторы для реактивных форм.
+  - `utils` - вспомогательные функции
+  - `pipes`
+  - `directives`
+  - `models`
+  - `constants`
+
+## Рекомендации разработчикам (todo)
+
+- Используйте "технический радар" при выборе необходимых библиотек
+- В качестве главного компонента модуля используте название main
+- ...

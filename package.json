@@ -12,10 +12,10 @@
     "e2e": "npm run ng e2e",
     "lint": "npx eslint {src,e2e}/**/*.ts",
     "lint:fix": "npx eslint {src,e2e}/**/*.ts --fix",
-    "lint-staged": "npx lint-staged",
     "stylelint": "npx stylelint src/**/*.scss",
     "stylelint:fix": "npx stylelint src/**/*.scss --fix",
-    "prettier": "prettier --write {src,e2e}/**/*.{js,ts,css,html}",
+    "prettier": "prettier --write {src,e2e}/**/*.{ts,html}",
+    "lint-staged": "npx lint-staged",
     "ngcc": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points --tsconfig \"./tsconfig.app.json\"",
     "postinstall": "npm run ngcc && npx husky install"
   },
@@ -60,10 +60,11 @@
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
     "protractor": "7.0.0",
-    "stylelint": "13.9.0",
-    "stylelint-config-prettier": "8.0.2",
+    "stylelint": "13.11.0",
+    "stylelint-config-recommended-scss": "4.2.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-prettier": "1.1.2",
+    "stylelint-scss": "3.19.0",
     "ts-node": "8.3.0",
     "typescript": "4.0.2"
   },
@@ -77,7 +78,7 @@
     ]
   },
   "lint-staged": {
-    "src/**/*.{ts,scss,html}": [
+    "src/**/*.{ts,html}": [
       "prettier --write"
     ],
     "src/**/*.scss": [
