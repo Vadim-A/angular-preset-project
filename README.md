@@ -43,6 +43,8 @@
 
 `@commitlint` - набор инструментов для обнаружения отклонений от настроек соглашений о коммитах в момент коммита.
 
+`standard-version` - инструмент для автоматической генерации CHANGELOG.md и версии приложения на основе коммитов.
+
 ## Команды проекта
 
 - `start`: запуск проекта.
@@ -81,13 +83,11 @@
 
 ## Работа с Git (**_todo_**)
 
-При написании коммита нужно придерживаться общепринятых соглашений [https://www.conventionalcommits.org/ru/v1.0.0-beta.4/](https://www.conventionalcommits.org/ru/v1.0.0-beta.4/).
+При написании коммита нужно придерживаться общепринятых соглашений [https://www.conventionalcommits.org/ru/v1.0.0-beta.4/](https://www.conventionalcommits.org/ru/v1.0.0-beta.4/). Можно воспользоваться командой для интерактивного ввода сообщений о коммите `npm run cz`. На основе этих комитов в дальнейшем генерируется файл CHANGELOG.md
 
-Можно воспользоваться командой для интерактивного ввода сообщений о коммите `npm run cz`
+Для автоматической генерации CHANGELOG.md и версии приложения нужно запустить комманду `npm run release`. Команда автоматически создаст новый коммит с измененными CHANGELOG.md, package.json и package-lock.json.
 
-На основе этих комитов в дальнейшем генерируется файл CHANGELOG.md
-
-Для CHANGELOG.md и автоматической генерации версии приложения нужно запустить комманду `npm run release`. Команда автоматически создаст новый коммит с измененными CHANGELOG.md, package.json и package-lock.json.
+Подробнее о пакете `standard-version` можно ознакомится по ссылке [https://github.com/conventional-changelog/standard-version](https://github.com/conventional-changelog/standard-version)
 
 > **!** При выполнении команды `npm run release` в git будут созданы теги.
 
