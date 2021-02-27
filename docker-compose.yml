@@ -1,0 +1,21 @@
+# Run docker-compose up --build -d
+
+version: '3.8'
+
+services:
+  ng-preset-9000:
+    image: ng-preset-9000
+    build:
+      context: '.'
+      args:
+        configuration: production
+    ports:
+      - 9000:80
+  ng-preset-9001:
+    image: ng-preset-9001
+    build:
+      context: '.'
+      args:
+        configuration:
+    ports:
+      - 9001:80

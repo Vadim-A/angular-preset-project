@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "npx ng",
     "start": "ng serve",
+    "start:prod": "ng serve --prod",
     "build": "npm run ng -- build",
     "build:prod": "npm run ng -- build --prod",
     "test": "npx jest --passWithNoTests",
@@ -83,7 +84,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/dist",
       "<rootDir>/adr",
-      "<rootDir>/rfc"
+      "<rootDir>/rfc",
+      "<rootDir>/docs"
     ]
   },
   "lint-staged": {

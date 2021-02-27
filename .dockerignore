@@ -1,0 +1,13 @@
+.git
+.husky
+adr
+coverage
+dist
+docs
+e2e
+node_modules
+rfc
+Dockerfile
+Dockerfile_2
+README.md
+.*
