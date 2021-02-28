@@ -1,0 +1,14 @@
+{
+  "/api/mockData": {
+    "target": "https://jsonplaceholder.typicode.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/api/mockData": "" }
+  },
+  "/api/hacker-news": {
+    "target": "https://hacker-news.firebaseio.com/v0",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/api/hacker-news": "" }
+  }
+}

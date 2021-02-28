@@ -1,0 +1,37 @@
+@import '../../../../../scss/constants.scss';
+
+:host {
+  display: flex;
+  flex: auto;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: $duplo-space-m;
+
+    label {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-bottom: $duplo-space-xs;
+
+      input.error {
+        border-color: $color-danger;
+      }
+    }
+
+    button {
+      margin-top: $duplo-space-xs;
+    }
+  }
+}
+
+.sign-in-fail-message-container {
+  height: 40px;
+
+  span {
+    color: $color-danger;
+  }
+}

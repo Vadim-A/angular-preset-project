@@ -1,1 +1,17 @@
-<p>main works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Usermame:
+    <input type="text" [formControlName]="'usermame'" [ngClass]="{ error: form.get('usermame')?.errors }" />
+  </label>
+
+  <label>
+    Password:
+    <input type="text" [formControlName]="'password'" [ngClass]="{ error: form.get('password')?.errors }" />
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">Sign In</button>
+</form>
+
+<div class="sign-in-fail-message-container">
+  <span *ngIf="signInFail">Incorrect username or password.</span>
+</div>

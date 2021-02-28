@@ -2,43 +2,57 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppShellComponent } from './components/app-shell/app-shell.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { appLinks } from './core/constants/app-links';
+import { rootLinks } from './core/constants/app-links';
+import { AuthGuard } from './core/services/auth.guard';
+import { LoginPageGuard } from './core/services/login-page.guard';
+import { SelectivePreloadingStrategy } from './core/services/selective-preload-strategy';
 
 export const routes: Routes = [
   {
     path: '',
     component: AppShellComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: '', pathMatch: 'full', redirectTo: rootLinks.home },
       {
-        path: appLinks.home,
-        loadChildren: () =>
-          import('./modules/home/home.module').then((m) => m.HomeModule),
-        data: { preload: true },
+        path: rootLinks.home,
+        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+        data: {
+          preload: true,
+          title: 'Home page',
+        },
       },
       {
-        path: appLinks.demo,
-        loadChildren: () =>
-          import('./modules/demo/demo.module').then((m) => m.DemoModule),
-        data: { preload: true },
+        path: rootLinks.demo,
+        loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule),
+        data: {
+          preload: true,
+          title: 'Demo page',
+        },
       },
     ],
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
-
   {
-    path: appLinks.login,
-    loadChildren: () =>
-      import('./modules/authentication/authentication.module').then(
-        (m) => m.AuthenticationModule
-      ),
-    // canActivate: [LoginPageRedirectGuard],
+    path: rootLinks.login,
+    loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule),
+    data: { preload: false, title: 'Login page' },
+    canActivate: [LoginPageGuard],
   },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    data: {
+      preload: true,
+      title: '404',
+    },
+  },
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: SelectivePreloadingStrategy,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "npx ng",
-    "start": "ng serve",
-    "start:prod": "ng serve --prod",
+    "start": "npm run ng -- serve --proxy-config ./proxy/proxy.conf.json --poll 5000",
     "build": "npm run ng -- build",
     "build:prod": "npm run ng -- build --prod",
     "test": "npx jest --passWithNoTests",
@@ -32,6 +31,7 @@
     "@angular/platform-browser": "11.0.3",
     "@angular/platform-browser-dynamic": "11.0.3",
     "@angular/router": "11.0.3",
+    "jwt-decode": "^3.1.2",
     "normalize.css": "8.0.1",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",

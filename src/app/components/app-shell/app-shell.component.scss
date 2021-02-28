@@ -1,4 +1,4 @@
-@import "../../../scss/constants.scss";
+@import '../../../scss/constants.scss';
 
 :host {
   display: flex;
@@ -38,11 +38,14 @@ header {
 
 nav {
   background-color: $color-secondary;
+
   ul {
     list-style: none;
+
     li {
       display: inline-block;
       margin-right: $duplo-space-m;
+
       a {
         text-decoration: none;
         color: $color-text-light;
@@ -54,6 +57,7 @@ nav {
 
 main {
   display: flex;
-  flex: auto;
+  flex: 1 0 0;
   padding: $duplo-space-m;
+  overflow: auto;
 }

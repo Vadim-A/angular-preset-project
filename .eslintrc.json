@@ -130,6 +130,7 @@
         "guard-for-in": ["error"],
         "id-blacklist": 0,
         "id-match": 0,
+        "no-else-return": 0,
         "import/no-deprecated": "warn",
         "import/no-extraneous-dependencies": 0,
         "import/no-absolute-path": ["error"],
