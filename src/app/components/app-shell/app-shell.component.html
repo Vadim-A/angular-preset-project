@@ -1,11 +1,11 @@
 <header class="header">
   <div class="header__menu-button"></div>
 
-  <div class="header__page-title">Page Title</div>
+  <div class="header__page-title">{{ title$ | async }}</div>
 
-  <div class="header__user-name">user name</div>
+  <div class="header__user-name">{{ userName$ | async }}</div>
 
-  <div class="header__logout-button"></div>
+  <div class="header__logout-button"><button (click)="onLogoutClick()">Выйти</button></div>
 </header>
 <nav>
   <ul>

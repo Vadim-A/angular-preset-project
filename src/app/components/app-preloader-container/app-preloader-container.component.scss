@@ -1,0 +1,19 @@
+@import '../../../scss/constants.scss';
+
+.preloader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5000;
+  background: rgba($color-primary, 0.3);
+
+  .preloader {
+    font-size: $font-size-24;
+    color: $color-text-dark;
+  }
+}

@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
 function mockLogin(username: string, password: string): Observable<string | null> {
-  if (username === 'demo' && password === 'demo') {
-    return of(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsIm5hbWUiOiJkZW1vIn0.wT_SCzr_n2alJH9EFt8E0x5oOLc2k22yxx3XHYkBFS8',
-    );
-  } else if (username === 'admin' && password === 'admin') {
-    return of(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJuYW1lIjoiYWRtaW4ifQ.WRWyo2gLCfHLBAuT3GR38EtMN5tZoaVsiIv0MkifQF0',
-    );
-  }
-  return of(null);
+  return of({ username, password }).pipe(
+    delay(1000),
+    map(credentials => {
+      if (credentials.username === 'demo' && credentials.password === 'demo') {
+        return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsIm5hbWUiOiJkZW1vIn0.wT_SCzr_n2alJH9EFt8E0x5oOLc2k22yxx3XHYkBFS8';
+      } else if (credentials.username === 'admin' && credentials.password === 'admin') {
+        return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJuYW1lIjoiYWRtaW4ifQ.WRWyo2gLCfHLBAuT3GR38EtMN5tZoaVsiIv0MkifQF0';
+      }
+      return null;
+    }),
+  );
 }
 
 function mockLogOut(): Observable<boolean> {
@@ -25,6 +26,11 @@ const accessTokenName = 'accessToken';
 
 @Injectable()
 export class AuthService {
+  private _user: User | null;
+  get user() {
+    return this._user;
+  }
+
   login(username: string, password: string): Observable<User | null> {
     return mockLogin(username, password).pipe(
       map(token => {
@@ -32,7 +38,8 @@ export class AuthService {
           return null;
         }
         localStorage.setItem(accessTokenName, token);
-        return jwt_decode(token);
+        this._user = jwt_decode(token);
+        return this.user;
       }),
     );
   }
@@ -43,6 +50,7 @@ export class AuthService {
         if (!result) {
           return false;
         }
+        this._user = null;
         localStorage.removeItem(accessTokenName);
         return true;
       }),
@@ -55,5 +63,12 @@ export class AuthService {
 
   getAccessToken(): string | null {
     return localStorage.getItem(accessTokenName);
+  }
+
+  initUser() {
+    const accessToken = this.getAccessToken();
+    if (accessToken) {
+      this._user = jwt_decode(accessToken);
+    }
   }
 }

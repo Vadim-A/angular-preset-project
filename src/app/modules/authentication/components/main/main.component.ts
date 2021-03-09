@@ -2,8 +2,11 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { take, takeUntil } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { finalize, take, takeUntil } from 'rxjs/operators';
+import { AuthService } from '@core/services/auth.service';
+import { Store } from '@ngrx/store';
+import * as rootActions from '@rootStore/actions';
+import { RootModuleState } from '@rootStore/reducers';
 
 @Component({
   selector: 'app-main',
@@ -25,6 +28,7 @@ export class MainComponent implements OnDestroy {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    private store: Store<RootModuleState>,
   ) {}
 
   ngOnDestroy(): void {
@@ -33,11 +37,18 @@ export class MainComponent implements OnDestroy {
   }
 
   onSubmit() {
+    const actionId = 'login';
+    this.store.dispatch(rootActions.ShowLoader({ loaderId: actionId }));
     this.authService
       .login(this.form.get('usermame')?.value, this.form.get('password')?.value)
-      .pipe(take(1), takeUntil(this.ngUnsubscribe$))
-      .subscribe(result => {
-        if (result) {
+      .pipe(
+        take(1), // todo: проверить необходимость этой функции
+        takeUntil(this.ngUnsubscribe$),
+        finalize(() => this.store.dispatch(rootActions.HideLoader({ loaderId: actionId }))),
+      )
+      .subscribe(user => {
+        if (user) {
+          this.store.dispatch(rootActions.SetUser({ user }));
           const redirectTo = this.route.snapshot.queryParams.redirectTo;
           const urlTree = this.router.createUrlTree(redirectTo ? [redirectTo] : []);
           this.router.navigateByUrl(urlTree);

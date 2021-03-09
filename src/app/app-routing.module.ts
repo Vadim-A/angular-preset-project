@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppShellComponent } from './components/app-shell/app-shell.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { rootLinks } from './core/constants/app-links';
-import { AuthGuard } from './core/services/auth.guard';
-import { LoginPageGuard } from './core/services/login-page.guard';
-import { SelectivePreloadingStrategy } from './core/services/selective-preload-strategy';
+import { rootLinks } from '@core/constants/app-links';
+import { AuthGuard } from '@core/services/auth.guard';
+import { LoginPageGuard } from '@core/services/login-page.guard';
+import { SelectivePreloadingStrategy } from '@core/services/selective-preload-strategy';
 
 export const routes: Routes = [
   {
