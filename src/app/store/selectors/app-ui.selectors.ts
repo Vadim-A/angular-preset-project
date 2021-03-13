@@ -10,3 +10,4 @@ export const selectShowLoader = createSelector(
 
 export const selectTitle = createSelector(fromStore.selectAppUIState, fromAppUI.selectTitle);
 export const selectUser = createSelector(fromStore.selectAppUIState, fromAppUI.selectUser);
+export const selectSnackbars = createSelector(fromStore.selectAppUIState, fromAppUI.selectSnackbars);
