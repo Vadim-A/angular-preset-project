@@ -33,9 +33,8 @@ import { SnackbarModule } from '@shared/pure/snackbar/snackbar.module';
     SnackbarModule,
     StoreModule.forRoot(rootReducers),
     EffectsModule.forRoot(rootEffects),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }), // todo: разобраться с этим инструментом
-    StoreRouterConnectingModule.forRoot(), // todo: разобраться с этим инструментом
-    // StoreRouterConnectingModule.forRoot({ serializer: DefaultRouterStateSerializer, stateKey: 'router' }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     {
@@ -43,7 +42,6 @@ import { SnackbarModule } from '@shared/pure/snackbar/snackbar.module';
       useClass: NsiRouterStateSerializer,
     },
     {
-      // todo: разобраться с этим провайдером
       provide: LOCALE_ID,
       useValue: 'ru-RU',
     },

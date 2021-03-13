@@ -47,7 +47,7 @@ import { Snackbar } from '@shared/models/snackbar.model';
 export class SnackbarContainerComponent implements OnInit, OnDestroy {
   private ngUnsubscribe$ = new Subject();
   snackbars: Snackbar[];
-  closeSnackbarTimeout = 15000;
+  closeSnackbarTimeout = 7000;
 
   @HostBinding('@snackbarAnimation')
   get slideIn() {
