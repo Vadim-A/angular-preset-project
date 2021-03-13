@@ -1,3 +1,5 @@
+# docker build -f Dockerfile -t ng-preset:v1 --build-arg configuration=production .
+
 # Stage for build application
 FROM node:14.15.5-alpine3.13 as ng-app
 ARG configuration="production"

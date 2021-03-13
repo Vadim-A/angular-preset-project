@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainComponent } from 'src/app/modules/home/components/main/main.component';
 
 @Component({
-  template: `<app-main></app-main>`,
+  template: '<app-main></app-main>',
 })
 class TestWrapperComponent {
   @ViewChild('target', { static: true, read: MainComponent }) targetComponent!: MainComponent;
