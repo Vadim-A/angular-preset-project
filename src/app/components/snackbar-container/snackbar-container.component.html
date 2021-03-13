@@ -1,0 +1,7 @@
+<app-snackbar
+  *ngFor="let snackbar of snackbars"
+  [snackbar]="snackbar"
+  [closeSnackbarTimeout]="closeSnackbarTimeout"
+  (closeSnackbar)="onCloseSnackbar($event)"
+>
+</app-snackbar>

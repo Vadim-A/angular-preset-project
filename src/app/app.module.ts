@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,13 +14,23 @@ import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router
 import { AppPreloaderContainerComponent } from './components/app-preloader-container/app-preloader-container.component';
 import { NsiRouterStateSerializer, rootReducers } from '@rootStore/reducers';
 import { rootEffects } from '@rootStore/effects';
+import { SnackbarContainerComponent } from './components/snackbar-container/snackbar-container.component';
+import { SnackbarModule } from '@shared/pure/snackbar/snackbar.module';
 
 @NgModule({
-  declarations: [AppComponent, AppShellComponent, NotFoundComponent, AppPreloaderContainerComponent],
+  declarations: [
+    AppComponent,
+    AppShellComponent,
+    SnackbarContainerComponent,
+    NotFoundComponent,
+    AppPreloaderContainerComponent,
+  ],
   imports: [
     CoreModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    SnackbarModule,
     StoreModule.forRoot(rootReducers),
     EffectsModule.forRoot(rootEffects),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }), // todo: разобраться с этим инструментом

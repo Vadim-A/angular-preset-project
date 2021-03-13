@@ -1,0 +1,17 @@
+@import '../../../scss/constants.scss';
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  width: 485px;
+
+  app-snackbar {
+    height: 60px;
+    margin-bottom: $duplo-space-l;
+    border-radius: $radius-l 0 0 $radius-l;
+  }
+}

@@ -4,6 +4,7 @@
   "rules": {
     "color-hex-length": null,
     "no-empty-source": null,
-    "string-quotes": "single"
+    "string-quotes": "single",
+    "selector-type-no-unknown": [true, { "ignore": ["custom-elements"] }]
   }
 }
