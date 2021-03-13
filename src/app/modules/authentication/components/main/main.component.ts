@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { finalize, take, takeUntil } from 'rxjs/operators';
+import { finalize, takeUntil } from 'rxjs/operators';
 import { AuthService } from '@core/services/auth.service';
 import { Store } from '@ngrx/store';
 import * as rootActions from '@rootStore/actions';
@@ -42,7 +42,6 @@ export class MainComponent implements OnDestroy {
     this.authService
       .login(this.form.get('usermame')?.value, this.form.get('password')?.value)
       .pipe(
-        take(1), // todo: проверить необходимость этой функции
         takeUntil(this.ngUnsubscribe$),
         finalize(() => this.store.dispatch(rootActions.HideLoader({ loaderId: actionId }))),
       )

@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as rootSelectors from '@rootStore/selectors';
 import { RootModuleState } from '@rootStore/reducers';
-import { finalize, map, take, takeUntil } from 'rxjs/operators';
+import { finalize, map, takeUntil } from 'rxjs/operators';
 import { AuthService } from '@core/services/auth.service';
 import * as rootActions from '@rootStore/actions';
 import { Subject } from 'rxjs';
@@ -36,7 +36,6 @@ export class AppShellComponent implements OnDestroy {
     this.authService
       .logout()
       .pipe(
-        take(1), // todo: проверить необходимость этой функции
         takeUntil(this.ngUnsubscribe$),
         finalize(() => this.store.dispatch(rootActions.HideLoader({ loaderId: actionId }))),
       )
