@@ -1,3 +1,10 @@
-<div>
-  <button (click)="onAddSnackbarClick()">add snackbar</button>
+<div class="demo-navigation">
+  <ul>
+    <li><a [routerLink]="'content'">content</a></li>
+    <li><a [routerLink]="'snackbar'">snackbar</a></li>
+    <li><a [routerLink]="'i18n'">i18n</a></li>
+  </ul>
+</div>
+<div class="demo-content">
+  <router-outlet></router-outlet>
 </div>

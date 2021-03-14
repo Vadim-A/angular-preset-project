@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="01a4db15618614fd2fb5579a43c6a8cf7011d5d9" datatype="html">
+        <source>Пример использования i18n</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Заголовок демонстрации i18n</note>
+        <note priority="1" from="meaning">Заголовок</note>
+      </trans-unit>
+      <trans-unit id="4e6f993e7c8f946a86834f12f006af6d0a9c9419" datatype="html">
+        <source> В i18n можно передавать дополнительное описание в формате &quot;Значение|Описание&quot; или &quot;Описание&quot; Id переводимого блока генерируется на основе хэша текста внутри тэга </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+        <note priority="1" from="description">О передаче дополнительной информации</note>
+        <note priority="1" from="meaning">i18n</note>
+      </trans-unit>
+      <trans-unit id="(demo)about_id" datatype="html">
+        <source> По умолчанию i18n генерирует для блока токен на основе хэша содержимого переводимого блока. Но можно указать свой токен, используя @@. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+        <note priority="1" from="description">О передаче id</note>
+        <note priority="1" from="meaning">i18n</note>
+      </trans-unit>
+      <trans-unit id="84dbf1343e3eb46f588a046f69ef3b29d78a9ccc" datatype="html">
+        <source>Кнопка с установленным аттрибутом title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Описание кнопки, следующей за данным текстом</note>
+        <note priority="1" from="meaning">Текст</note>
+      </trans-unit>
+      <trans-unit id="c106177fa7224be9ee42d1343d59715030821d25" datatype="html">
+        <source>Кнопка не выполнит никаких действий</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Подсказка пользователю, что кнопка является заглушкой</note>
+        <note priority="1" from="meaning">Подсказка</note>
+      </trans-unit>
+      <trans-unit id="7c79084348686b1c699a8c89658263bccf4cbd6c" datatype="html">
+        <source> Сохранить </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Кнопка, при нажатии ничего не происходит. Только для демонстрации i18n</note>
+        <note priority="1" from="meaning">Кнопка</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

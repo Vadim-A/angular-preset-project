@@ -1,0 +1,32 @@
+@import '../../../../../scss/constants.scss';
+
+:host {
+  display: flex;
+  flex: auto;
+
+  .demo-navigation {
+    width: 200px;
+    overflow: auto;
+    background-color: $color-secondary;
+
+    ul {
+      list-style: none;
+      padding-left: $duplo-space-xxs;
+
+      li {
+        margin-bottom: $duplo-space-s;
+
+        a {
+          text-decoration: none;
+          color: $color-text-light;
+          font-size: $font-size-16;
+        }
+      }
+    }
+  }
+
+  .demo-content {
+    flex: auto;
+    padding: $duplo-space-s;
+  }
+}
