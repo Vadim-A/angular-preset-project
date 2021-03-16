@@ -9,11 +9,11 @@ import * as rootActions from '@rootStore/actions';
 import { RootModuleState } from '@rootStore/reducers';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: 'app-authentication-main',
+  templateUrl: './authentication-main.component.html',
+  styleUrls: ['./authentication-main.component.scss'],
 })
-export class MainComponent implements OnDestroy {
+export class AuthenticationMainComponent implements OnDestroy {
   form = this.fb.group({
     usermame: ['', [Validators.required]],
     password: ['', [Validators.required]],

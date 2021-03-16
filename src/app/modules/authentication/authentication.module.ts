@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './components/main/main.component';
+import { AuthenticationMainComponent } from './components/authentication-main/authentication-main.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [AuthenticationMainComponent],
   imports: [CommonModule, AuthenticationRoutingModule, ReactiveFormsModule],
   exports: [ReactiveFormsModule],
 })
