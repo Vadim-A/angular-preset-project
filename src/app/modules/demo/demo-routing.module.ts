@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { DemoContentComponent } from './components/demo-content/demo-content.component';
 import { DemoI18nComponent } from './components/demo-i18n/demo-i18n.component';
 import { DemoSnackbarComponent } from './components/demo-snackbar/demo-snackbar.component';
-import { MainComponent } from './components/main/main.component';
+import { DemoMainComponent } from './components/demo-main/demo-main.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: DemoMainComponent,
     children: [
       {
         path: 'content',
