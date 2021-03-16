@@ -7,11 +7,11 @@ import { Store } from '@ngrx/store';
 import * as rootActions from '@rootStore/actions';
 import { RootModuleState } from '@rootStore/reducers';
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: 'app-home-main',
+  templateUrl: './home-main.component.html',
+  styleUrls: ['./home-main.component.scss'],
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class HomeMainComponent implements OnInit, OnDestroy {
   users: object[] = [];
 
   private ngUnsubscribe$ = new Subject();
