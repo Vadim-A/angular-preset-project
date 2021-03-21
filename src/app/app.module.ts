@@ -15,7 +15,7 @@ import { AppPreloaderContainerComponent } from './components/app-preloader-conta
 import { NsiRouterStateSerializer, rootReducers } from '@rootStore/reducers';
 import { rootEffects } from '@rootStore/effects';
 import { SnackbarContainerComponent } from './components/snackbar-container/snackbar-container.component';
-import { SnackbarModule } from '@shared/pure/snackbar/snackbar.module';
+import { SnackbarModule } from '@shared/modules/pure/snackbar/snackbar.module';
 
 @NgModule({
   declarations: [
