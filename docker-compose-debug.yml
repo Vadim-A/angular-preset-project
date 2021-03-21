@@ -1,0 +1,13 @@
+# docker-compose -f docker-compose-debug.yml up --build -d
+
+version: '3.8'
+services:
+  ng-preset-debug:
+    image: ng-preset:debug
+    build:
+      dockerfile: Dockerfile-debug
+      context: '.'
+    ports:
+      - 9005:80
+    volumes:
+      - ./dist/angular-preset-project:/usr/share/nginx/html/angular-preset-project

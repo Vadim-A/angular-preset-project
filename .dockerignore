@@ -2,7 +2,6 @@
 .husky
 adr
 coverage
-dist
 docs
 e2e
 node_modules

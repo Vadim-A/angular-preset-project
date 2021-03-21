@@ -5,6 +5,7 @@
     "ng": "npx ng",
     "start": "npm run ng -- serve --proxy-config ./proxy/proxy.conf.json --poll 5000",
     "build": "npm run ng -- build",
+    "build:watch": "npm run ng -- build --watch",
     "build:prod": "npm run ng -- build --prod",
     "test": "npx jest --passWithNoTests",
     "test:watch": "npx jest --watch",
