@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
 import { MOCK_DATA_USERS } from '@core/constants/api';
@@ -10,13 +10,14 @@ import { RootModuleState } from '@rootStore/reducers';
   selector: 'app-home-main',
   templateUrl: './home-main.component.html',
   styleUrls: ['./home-main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeMainComponent implements OnInit, OnDestroy {
   users: object[] = [];
 
   private ngUnsubscribe$ = new Subject();
 
-  constructor(private httpClient: HttpClient, private store: Store<RootModuleState>) {}
+  constructor(private httpClient: HttpClient, private store: Store<RootModuleState>, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     const actionId = 'Get mock data';
@@ -29,6 +30,7 @@ export class HomeMainComponent implements OnInit, OnDestroy {
       )
       .subscribe(users => {
         this.users = users;
+        this.cdr.markForCheck();
       });
   }
 

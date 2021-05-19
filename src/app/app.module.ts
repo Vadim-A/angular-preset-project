@@ -16,6 +16,19 @@ import { NsiRouterStateSerializer, rootReducers } from '@rootStore/reducers';
 import { rootEffects } from '@rootStore/effects';
 import { SnackbarContainerComponent } from './components/snackbar-container/snackbar-container.component';
 import { SnackbarModule } from '@shared/modules/pure/snackbar/snackbar.module';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { i18n_environment } from 'src/environments/i18n/i18n';
+
+if (!environment.production) {
+  switch (i18n_environment.localeId) {
+    case 'ru-RU':
+      registerLocaleData(localeRu, i18n_environment.localeId);
+      break;
+    default:
+      break;
+  }
+}
 
 @NgModule({
   declarations: [
@@ -41,10 +54,7 @@ import { SnackbarModule } from '@shared/modules/pure/snackbar/snackbar.module';
       provide: RouterStateSerializer,
       useClass: NsiRouterStateSerializer,
     },
-    {
-      provide: LOCALE_ID,
-      useValue: 'ru-RU',
-    },
+    ...(environment.production ? [] : [{ provide: LOCALE_ID, useValue: i18n_environment.localeId }]),
   ],
   bootstrap: [AppComponent],
 })

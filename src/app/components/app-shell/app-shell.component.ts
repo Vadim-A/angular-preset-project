@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as rootSelectors from '@rootStore/selectors';
 import { RootModuleState } from '@rootStore/reducers';
@@ -13,6 +13,7 @@ import { rootLinks } from '@core/constants/app-links';
   selector: 'app-app-shell',
   templateUrl: './app-shell.component.html',
   styleUrls: ['./app-shell.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppShellComponent implements OnDestroy {
   title$ = this.store.pipe(select(rootSelectors.selectTitle));

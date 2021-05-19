@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as rootSelectors from '@rootStore/selectors';
 import { RootModuleState } from '@rootStore/reducers';
@@ -8,6 +8,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   selector: 'app-app-preloader-container',
   templateUrl: './app-preloader-container.component.html',
   styleUrls: ['./app-preloader-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppPreloaderContainerComponent {
   showLoader$ = this.store.pipe(select(rootSelectors.selectShowLoader), debounceTime(100), distinctUntilChanged());

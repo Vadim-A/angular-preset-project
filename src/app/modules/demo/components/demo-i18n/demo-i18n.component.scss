@@ -1,0 +1,13 @@
+@import '.././../../../../scss/constants.scss';
+
+.example {
+  margin-bottom: $duplo-space-xs;
+}
+
+.gender-select {
+  label {
+    margin-right: $duplo-space-m;
+  }
+
+  margin-bottom: $duplo-space-m;
+}

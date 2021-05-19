@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -12,6 +12,7 @@ import { RootModuleState } from '@rootStore/reducers';
   selector: 'app-authentication-main',
   templateUrl: './authentication-main.component.html',
   styleUrls: ['./authentication-main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationMainComponent implements OnDestroy {
   form = this.fb.group({

@@ -13,14 +13,23 @@ const routes: Routes = [
       {
         path: 'content',
         component: DemoContentComponent,
+        data: {
+          title: 'content',
+        },
       },
       {
         path: 'snackbar',
         component: DemoSnackbarComponent,
+        data: {
+          title: 'snackbar',
+        },
       },
       {
         path: 'i18n',
         component: DemoI18nComponent,
+        data: {
+          title: 'i18n',
+        },
       },
     ],
   },

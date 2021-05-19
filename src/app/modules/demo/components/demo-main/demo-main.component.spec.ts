@@ -1,10 +1,11 @@
 import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA, Component, ViewChild } from '@angular/core';
+import { NO_ERRORS_SCHEMA, Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DemoMainComponent } from './demo-main.component';
 
 @Component({
   template: '<app-main></app-main>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestWrapperComponent {
   @ViewChild('target', { static: true, read: DemoMainComponent }) targetComponent!: DemoMainComponent;

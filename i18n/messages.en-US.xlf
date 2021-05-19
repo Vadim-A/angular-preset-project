@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru-RU" datatype="plaintext" original="ng2.template" target-language="en-US">
+    <body>
+      <trans-unit id="(demo)textInCode" datatype="html">
+        <source>Текст в ts коде</source><target>Text in ts code</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Пример текста в коде</note>
+        <note priority="1" from="meaning">Текст</note>
+      </trans-unit>
+      <trans-unit id="d09cc1e01f42cfe6dec3958d79aef122cdfcfda4" datatype="html">
+        <source>Простой пример</source><target>Simple example</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d10f8579d99ef30dcbeffc28775d80e0831c03c0" datatype="html">
+        <source>Описание</source><target>Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Описание</note>
+      </trans-unit>
+      <trans-unit id="71803dd0efcb17edb67fd287491b39279d5b56c3" datatype="html">
+        <source>Значение и описание</source><target>Meaning and description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Описание</note>
+        <note priority="1" from="meaning">Значение</note>
+      </trans-unit>
+      <trans-unit id="(demo)someId" datatype="html">
+        <source>Идентификатор</source><target>Identificator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="(demo)someId2" datatype="html">
+        <source>Значение|Описание@@Идентификатор</source><target>Meaning|Description@@Identificator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Описание</note>
+        <note priority="1" from="meaning">Значение</note>
+      </trans-unit>
+      <trans-unit id="9e1c6a947ba7c968982a23cbd9ec0e73173cc47b" datatype="html">
+        <source>Подсказка</source><target>Tooltip</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Всплывающая подсказка для текста</note>
+      </trans-unit>
+      <trans-unit id="e09eff760b4fc8f8e30cca96f13bed3a7a6b7095" datatype="html">
+        <source> Перевод аттрибутов
+</source><target>
+Attribute translate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <note priority="1" from="description">Текст</note>
+      </trans-unit>
+      <trans-unit id="444db487e7bcb1568279973f31bed91de04e2a04" datatype="html">
+        <source>Для перевода вне html тега, текст оборачивается в ng-container</source><target>For translating out of html tag, wrapping in ng-container</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b40ea0fb503f8d4614c19507af56033cefe7973" datatype="html">
+        <source>Обновленно: </source><target>Updated: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e4bf846aead6aae8023cf02d59388f4186cf03d3" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {только что} few {<x id="INTERPOLATION" /> минуты назад} many {<x id="INTERPOLATION" /> минут назад} other {<x id="INTERPOLATION" /> минуту назад} =60 {час назад}}</source>
+        <target>{VAR_PLURAL, plural, =0 {just now} =1 {<x id="INTERPOLATION" /> minute ago} other {<x id="INTERPOLATION" /> minutes ago} =60 {an hour ago}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6b2fb2fac8790184c64dbf3f1339055ade9b6b1c" datatype="html">
+        <source> <x id="ICU" equiv-text="{minutes, plural, =0 {только что} few {{{minutes}} минуты назад} many{{{minutes}} минут назад} other
+    {{{minutes}} минуту назад} =60 {час назад}}
+  " /> </source>
+  <target> <x id="ICU" equiv-text="{minutes, plural, =0 {just now} =1 {{{minutes}} minute ago} other {{{minutes}} minutes ago} =60 {an hour ago}}
+  " /> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="381b51772e9964bbf28d8acb0b4e72635651e72e" datatype="html">
+        <source>Здравствуйте </source><target>Hello </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5358b8e3b712224b8ecdb67a39ab20471c89e59d" datatype="html">
+        <source>{VAR_SELECT, select, 0 {андрогин} 1 {сэр} 2 {мэм}}</source>
+        <target>{VAR_SELECT, select, 0 {androgynous} 1 {sir} 2 {madam}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/demo/components/demo-i18n/demo-i18n.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

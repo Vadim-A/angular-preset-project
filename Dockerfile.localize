@@ -1,0 +1,16 @@
+# docker build -f Dockerfile.localize -t ng-preset-localize:v1 .
+
+# Stage for build application
+FROM node:14.15.5-alpine3.13 as ng-app
+WORKDIR /app-angular
+COPY ["package.json", "package-lock.json", "./"]
+RUN npm install --silent
+COPY ["./i18n", "./i18n/"]
+COPY ["./src", "./src/"]
+COPY ["tsconfig*", "angular.json", "./"]
+RUN npm run build:prod-localize
+
+# Stage for deploy and hosting application
+FROM nginx:alpine
+COPY --from=ng-app /app-angular/dist /usr/share/nginx/html
+COPY ./config/nginx.l10n.conf /etc/nginx/nginx.conf

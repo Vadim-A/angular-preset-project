@@ -1,4 +1,4 @@
-# docker build -f Dockerfile-debug -t ng-preset:debug --build-arg configuration=production .
+# docker build -f Dockerfile.debug -t ng-preset:debug --build-arg configuration=production .
 
 # Stage for deploy and hosting application
 FROM nginx:alpine

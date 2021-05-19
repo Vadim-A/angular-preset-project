@@ -8,7 +8,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "skipTests": true
+          "skipTests": true,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:class": {
           "skipTests": true
@@ -53,6 +54,15 @@
             "scripts": []
           },
           "configurations": {
+            "en-US": {
+              "localize": ["en-US"],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/i18n/i18n.ts",
+                  "with": "src/environments/i18n/i18n.en-US.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -90,6 +100,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-preset-project:build:production"
+            },
+            "en-US": {
+              "browserTarget": "angular-preset-project:build:en-US"
             }
           }
         },
@@ -110,6 +123,12 @@
               "devServerTarget": "angular-preset-project:serve:production"
             }
           }
+        }
+      },
+      "i18n": {
+        "sourceLocale": "ru",
+        "locales": {
+          "en-US": "i18n/messages.en-US.xlf"
         }
       }
     }

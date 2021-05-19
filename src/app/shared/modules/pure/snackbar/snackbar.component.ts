@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Snackbar } from '@shared/models/snackbar.model';
 
 @Component({
   selector: 'app-snackbar',
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SnackbarComponent implements OnInit {
   @Input() snackbar!: Snackbar;
