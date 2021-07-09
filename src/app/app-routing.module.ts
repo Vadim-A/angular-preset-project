@@ -21,16 +21,16 @@ export const routes: Routes = [
           title: 'Home page',
         },
       },
-      {
-        path: rootLinks.demo,
-        loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule),
-        data: {
-          preload: true,
-          title: 'Demo page',
-        },
-      },
     ],
     canActivate: [AuthGuard],
+  },
+  {
+    path: rootLinks.demo,
+    loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule),
+    data: {
+      preload: true,
+      title: 'Demo page',
+    },
   },
   {
     path: rootLinks.login,
@@ -51,6 +51,7 @@ export const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: SelectivePreloadingStrategy,
+      initialNavigation: 'enabled',
     }),
   ],
   exports: [RouterModule],

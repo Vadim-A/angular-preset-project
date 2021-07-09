@@ -40,7 +40,7 @@ if (!environment.production) {
   ],
   imports: [
     CoreModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     SnackbarModule,

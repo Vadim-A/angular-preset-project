@@ -1,4 +1,4 @@
-# docker build -f Dockerfile -t ng-preset:v1 --build-arg configuration=production .
+# docker build -f Dockerfile -t ng-ssr:v1 .
 
 # Stage for build application
 FROM node:14.15.5-alpine3.13 as ng-app
@@ -9,7 +9,7 @@ COPY ["package.json", "package-lock.json", "./"]
 RUN npm install --silent
 COPY ["./src", "./src/"]
 COPY ["tsconfig*", "angular.json", "./"]
-RUN npm run ng build -- --configuration=$configuration
+RUN npm run build:ssr
 
 # Stage for deploy and hosting application
 FROM nginx:alpine
